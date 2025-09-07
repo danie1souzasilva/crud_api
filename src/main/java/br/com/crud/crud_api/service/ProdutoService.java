@@ -1,6 +1,7 @@
-package br.com.crud.crud_api;
+package br.com.crud.crud_api.service;
 
-import org.springframework.http.ProblemDetail;
+import br.com.crud.crud_api.Produto;
+import br.com.crud.crud_api.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,14 +18,12 @@ public class ProdutoService {
     public List<Produto> listarProdutos() {
         return produtoRepository.findAll();
     }
-
     public Optional<Produto> buscarporId(Long id) {
         return produtoRepository.findById(id);
     }
     public Produto salvar(Produto produto) {
         return produtoRepository.save(produto);
     }
-
     public void deletar (Long id){
         produtoRepository.deleteById(id);
     }

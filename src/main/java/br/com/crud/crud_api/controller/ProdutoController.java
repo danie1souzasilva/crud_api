@@ -1,5 +1,7 @@
-package br.com.crud.crud_api;
+package br.com.crud.crud_api.controller;
 
+import br.com.crud.crud_api.Produto;
+import br.com.crud.crud_api.service.ProdutoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +38,7 @@ public class ProdutoController {
     })
                 .orElse(ResponseEntity.notFound().build());
     }
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id){
         return produtoService.buscarporId(id)
                 .map(p ->{
